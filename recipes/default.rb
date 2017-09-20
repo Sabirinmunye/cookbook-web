@@ -12,10 +12,11 @@ service 'nginx' do
 	action [:enable, :start]
 end
 
-template '/etc/nginx/sites-available/defualt' do
+template '/etc/nginx/sites-available/default' do
 	source 'nginx.default.erb'
 	notifies :reload, "service[nginx]"
 end
+
 remote_file "/tmp/nodesource_setup.sh" do
 	source "https://deb.nodesource.com/setup_6.x"
 	action :create
