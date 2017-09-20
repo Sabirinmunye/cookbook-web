@@ -25,12 +25,14 @@ execute "update node resources" do
 	command "sh /tmp/nodesource_setup.sh"
 end
 
+package 'nodejs' do
+	action :upgrade
+end
+
 execute "install npm" do
 	command "npm install -g pm2"
 end
 
-package 'nodejs' do
-	action :upgrade
-end
+
 
 
