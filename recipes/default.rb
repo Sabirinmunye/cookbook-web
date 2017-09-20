@@ -5,9 +5,7 @@
 # Copyright:: 2017, The Authors, All Rights Reserved.
 apt_update
 package 'nginx'
-package 'nodejs' do
-	action :upgrade
-end
+
 
 service 'nginx' do 
 	supports status: true, restart: true, reload: true
@@ -29,6 +27,10 @@ end
 
 execute "install npm" do
 	command "npm install -g pm2"
+end
+
+package 'nodejs' do
+	action :upgrade
 end
 
 
